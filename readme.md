@@ -22,13 +22,13 @@ pip install -r requirements.txt
 1. Clone this repository to your local machine:
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/muhammadumair862/Airflow-ETL-Pipeline-for-Campaign-Data.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd airflow-campaign-data
+cd Airflow-ETL-Pipeline-for-Campaign-Data
 ```
 
 3. Start Airflow and set up the Airflow scheduler and webserver:
