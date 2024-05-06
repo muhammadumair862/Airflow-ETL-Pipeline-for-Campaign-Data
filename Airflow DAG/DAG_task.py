@@ -5,6 +5,15 @@ import logging
 import time
 import pymongo
 import pandas as pd
+import configparser
+
+# Read MongoDB credentials from config file
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+username = config['mongodb']['username']
+password = config['mongodb']['password']
+
 
 #Define default arguments
 default_args = {
@@ -20,7 +29,7 @@ dag = DAG ('DAG_Test_Task', default_args=default_args, schedule_interval=timedel
 logging.basicConfig(filename='log_file.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-def connect_to_mongodb(uri="mongodb+srv://tut68901:_f!CDs6ZEMkWZ86@cluster0.2w6rfen.mongodb.net/?retryWrites=true&w=majority"):
+def connect_to_mongodb(uri=f"mongodb+srv://{username}:{password}@cluster0.2w6rfen.mongodb.net/?retryWrites=true&w=majority"):
     """Connects to the MongoDB database and returns the client and campaign_db.
 
     Args:
